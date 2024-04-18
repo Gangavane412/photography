@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>photography website</title>
+    <link rel="stylesheet" href="contactform.css">
+</head>
+<body>
+    <div class="conatiner">
+        <form action="">
+            <label for="Name">Name</label>
+            <input type="text" id="Name" placeholder="Enter Your Name..." autocomplete="off">
+
+            <label for="Email">Email</label>
+            <input type="text" id="Email" placeholder="Enter Your Email..." autocomplete="off">
+
+            <label for="Contact">Contact Numbert</label>
+            <input type="text" id="Contact" placeholder="Enter Your Contact...">
+
+            <label for="Subject">Subject</label>
+            <input type="text" id="Subject" placeholder="Enter Your Subject...">
+
+
+            <label for="Message">Message</label>
+            <textarea name="Message" id="Message" cols="30" rows="10" placeholder="Enter Your Message..." style="height: 200px;"></textarea>
+           <!--- <a href=""  type="button" value="button" onclick="Send()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>Submit
+            </a>-->
+
+            <input type="button" value="button" onclick="Send()">
+        </form>
+    </div>
+
+
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script>
+        function Send(){
+            console.log("cell");
+            var name = document.getElementById("Name").value;
+            var email = document.getElementById("Email").value;
+            var contact = document.getElementById("Contact").value;
+            var sub = document.getElementById("Subject").value;
+            var mess = document.getElementById("Message").value;
+
+            var body= "Name: "+ name + "<br> Email:" + email + "<br>Contact Number:" + contact + "<br>Message:" + mess ;
+
+            console.log(body);
+ 
+            Email.send({
+                Host : "smtp.elasticemail.com",
+                Username : "gangawanepriyanka412@gmail.com",
+                Password : "407E00D45C57BBF584E3586CD606D2054DF9",
+                To : 'gangawanepriysnks412@gmail.com',
+                From : "gangawanepriyanka412@gmail.com",
+                Subject :sub ,
+                Body : body
+                }).then(
+                message => alert(message)
+            );
+        }
+    </script>
+<link rel="script" href="contactform.js">
+</body>
+</html>
